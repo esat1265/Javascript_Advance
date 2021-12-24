@@ -11,7 +11,6 @@ console.log(parcalar);
 
 
 
-
 // 1. Parca isimleri büyük harflere cevrilecektir.
 // array uzerinde gezinip her bir string i buyuk harfe cevirelim
 function toUpperCase() { 
@@ -27,11 +26,17 @@ toUpperCase();
 
 // 2. Parca isimlerinden sayilar cikartilacaktir.
 
-/*
+//parcalar arrayini harf harf ayirip arraylar elde edelim  
+let deleteNumberArray = parcalar.map((item)=>{
+        return item.split("");
+});
+
 //bir arrayin elamanlarini tarayip numara olanlari tespit edelim
 //daha sonra numara haric diger elemanlari birlestirelim
 //bir tek array icin yaptigimiz bu uygulamayi daha sonra herbir array icin uyuglayalim
-const text = ["K","a","p","o","r","t","a",5];
+
+for (let index = 0; index < parcalar.length; index++) {
+    const text = deleteNumberArray[index];
 console.log(text);
 
 const sayiAyikla = [];
@@ -42,17 +47,8 @@ const sayiAyikla = [];
          }
          sayiAyikla.push(text[index]);  
  };
- console.log(sayiAyikla.join(""));
-*/
-
-
-//parcalar arrayini harf harf ayirip arraylar elde edelim
-
-let deleteNumberArray = parcalar.map((item,index)=>{
-     return item.split("");
-});
-console.log(deleteNumberArray);
-
+ console.log(sayiAyikla.join(""));   
+}
 
 
 // 3. Parca isimleri tersine cevrilecektir.
@@ -64,7 +60,6 @@ function toReverse() {
     console.log(reverseText);
 }
 toReverse();
-
 
 
 
