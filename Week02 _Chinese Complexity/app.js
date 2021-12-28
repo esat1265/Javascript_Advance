@@ -21,10 +21,10 @@ let burcBul = addEventListener("click",(tikla)=>{
 
     let year = document.querySelector("#birthday").value;
     
-    let k = year % 12; //girilen tarihin 12 ve 10 ile bolumlerinden kalanini bulup k ve p degiskenlerine atiyoruz.
-    let p = year % 10;
+    let indexOfBranch = year % 12; //girilen tarihin 12 ve 10 ile bolumlerinden kalanini bulup degiskenlere atiyoruz.
+    let indexOfStam = year % 10;
 
-    console.log("sexagenary","(",year,")=>",stam[p], branch[k])    // kalan sonuc array uzerindeki index numarasi oldugundan konsola yazdiriyoruz
+    console.log("sexagenary","(",year,")=>",stam[indexOfStam], branch[indexOfBranch])    // kalan sonuc array uzerindeki index numarasi oldugundan konsola yazdiriyoruz
 });
 
 
@@ -47,19 +47,19 @@ let burcBul = addEventListener("click",(tikla)=>{
 
   let year = document.querySelector("#birthday").value;
     
-  let k = year % 12;
-  let p = year % 10;
+  let indexOfBranch = year % 12;
+  let indexOfStam = year % 10;
 
   if(p==0 || p==1){
-    console.log("sexagenary","(",year,")=>", stam[0], branch[k]);
+    console.log("sexagenary","(",year,")=>", stam[0], branch[indexOfBranch]);
   }else if(p==2 || p==3){
-    console.log("sexagenary","(",year,")=>",stam[1], branch[k]);
+    console.log("sexagenary","(",year,")=>",stam[1], branch[indexOfBranch]);
   }else if(p==4 || p==5){
-    console.log("sexagenary","(",year,")=>",stam[2], branch[k]);
+    console.log("sexagenary","(",year,")=>",stam[2], branch[indexOfBranch]);
   }else if(p==6 || p==7){
-    console.log("sexagenary","(",year,")=>",stam[3], branch[k]);
+    console.log("sexagenary","(",year,")=>",stam[3], branch[indexOfBranch]);
   }else{
-    console.log("sexagenary","(",year,")=>",stam[4], branch[k]);
+    console.log("sexagenary","(",year,")=>",stam[4], branch[indexOfBranch]);
   };   
 });
 
