@@ -44,3 +44,65 @@ console.log(ayakSayisi);
 //         ayakSayisi = ayakSayisi + 2;
 //     }
 // };
+
+//==============================================================================
+//Daha farkli bir metodla cozumu
+//==============================================================================
+
+
+/**
+Analiz:
+ - start
+ - Verilen bir hayvan arrayi var
+ - Necip usta, kendisine uygun hayvanlarin bacak sayisini istiyor
+ --> Tavuk hesaplamaya sokulmayacak, cünkü lezzetli corba cikmiyor.
+ --> Domuz hesapmalaya sokulmayacak
+ --> Tavuk(2), Inek(4), Domuz(4), Koyun(4)
+ - Yukarida belirlenen kurallara göre hesaplama yapilacak
+ - Bulunan bacak sayisi ekrana basilacak
+ - fin!
+ */
+
+/*
+ // constants
+ const NUMBER_OF_LEG_COW = 4;
+ const NUMBER_OF_LEG_SHEEP = 4;
+ 
+ const ANIMAL_COW = "INEK";
+ const ANIMAL_SHEEP = "KOYUN";
+ const ANIMAL_CHICKEN = "TAVUK";
+ const ANIMAL_PIG = "DOMUZ";
+ 
+ // User entered animal list
+ const animalList = [
+     "inek", "Domuz", "TaVuk", "kOYun", "koyUN", 
+     "INek", "Inek", "DOMUZ", "tavuk", "IneK"
+ ];
+ 
+ // helper functions, arrow functions
+ const toUpperCase = (animal) => animal.toUpperCase();
+ 
+ const removeUnwantedAnimals = (animal) => animal !== ANIMAL_CHICKEN && animal !== ANIMAL_PIG;
+ 
+ const findTotalAmount = (totalLegs, animal) => {
+                             if(animal === ANIMAL_COW){
+                                 totalLegs += NUMBER_OF_LEG_COW;
+                             }else if(animal === ANIMAL_SHEEP){
+                                 totalLegs += NUMBER_OF_LEG_SHEEP;
+                             }
+                             return totalLegs;
+                         }
+ 
+ // main function
+ function getCurrentTotalAmountOfLegs(pAnimalList){
+     const totalAmountOfLegs = 
+         pAnimalList
+             .map(toUpperCase)
+             .filter(removeUnwantedAnimals)
+             .reduce(findTotalAmount, 0);
+     
+     return totalAmountOfLegs;
+ }
+ 
+ console.log("Total amount of legs is ", getCurrentTotalAmountOfLegs(animalList));
+ */
