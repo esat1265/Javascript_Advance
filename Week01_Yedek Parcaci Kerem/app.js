@@ -26,30 +26,11 @@ toUpperCase();
 
 // 2. Parca isimlerinden sayilar cikartilacaktir.
 
-//parcalar arrayini harf harf ayirip arraylar elde edelim  
-let deleteNumberArray = parcalar.map((item)=>{
-        return item.split("");
+const removeNumbers = parcalar.map((item)=>{
+    return item.replace(/[1-9]/g, "")
 });
 
-//bir arrayin elamanlarini tarayip numara olanlari tespit edelim
-//daha sonra numara haric diger elemanlari birlestirelim
-//bir tek array icin yaptigimiz bu uygulamayi daha sonra herbir array icin uyuglayalim
-
-for (let index = 0; index < parcalar.length; index++) {
-    const text = deleteNumberArray[index];
-console.log(text);
-
-const sayiAyikla = [];
- for (let index = 0; index < text.length; index++) {
-    
-    if (typeof text[index]==="number") {
-         continue;
-         }
-         sayiAyikla.push(text[index]);  
- };
- console.log(sayiAyikla.join(""));   
-}
-
+console.log(removeNumbers);
 
 // 3. Parca isimleri tersine cevrilecektir.
 // array uzerinde gezinip her bir stringi ters ceviriyoruz
@@ -76,3 +57,62 @@ let date = parcalar.map((item,index)=>{
     return item.replace(parcalar[index],parcalar[index] + new Date());
 });
 console.log(date);
+
+
+/* Code riview dersi calismasi
+/*
+Oto yedek parca isi yapan Kerem Bey, toptancilardan aldigi yedek parcalari, kendi envanterine kendi sistemi ile kaydedip, bu parcalari depoya yerlestirirken bir takim süreclerden gecirmek istemektir. Bu süreclerin her biri bir fonksiyon olarak tanimlanacaktir.
+Araba parcalari ise bir array icinde verilecektir.
+
+örnek array: ["Kaporta5", "Ak3ü",  "Stop Lambasi", "Radyatör 21", "Karbüratör 42", "Tekerlek", "3 AYNA", "Jant"]
+Kerem Bey'in istedigi program, asagiaki durumlari karsilamasi gerekmektedir.
+
+Analiz
+-1. start
+0. Array verilmis
+1. Parca isimleri büyük harflere cevrilecektir.
+2. Parca isimlerinden sayilar cikartilacaktir.
+3. Parca isimleri tersine cevrilecektir.
+4. Her parcanin basina KEREMAG_ eklenecektir.
+5. Her parcanin sonuna ise parcanin sisteme girildigi tarih eklenecektir. (Date nesnesini kullanarak tarih ve saat konulmasi yeterlidir)
+6. finish
+*/
+/*
+// constants
+const PREFIX_KEREMAG = "KEREMAG_";
+const EMPTY_STRING = "";
+const REGEX_NUMBERS = /[1-9]/g;
+const REGEX_LETTERS = /[a-zA-Z]/g;
+
+// helper functions
+const convertToUppercase = (parca) => parca.toUpperCase();
+const removeNumbersFromSparePart = (parca) => parca.replace(REGEX_NUMBERS, EMPTY_STRING)
+const getCurrentDate = () => {
+    let dt = new Date();
+    return dt.getDate() + 
+        "/" + (dt.getMonth() + 1) +
+        "/" + dt.getFullYear() +
+        " " + dt.getHours() +
+        ":" + dt.getMinutes();
+}
+
+// User data
+const yedekParcaListesi = ["Kaporta5", "Ak3ü",  "Stop Lambasi", "Radyatör 21", "Karbüratör 42", "Tekerlek", "3 AYNA", "Jant"]
+
+// main function
+function processSpareParts(pSpacePartList){
+    const result = 
+        pSpacePartList
+            .map(convertToUppercase)
+            .map(removeNumbersFromSparePart)
+            .map((parca) => parca.trim())
+            .map((parca) => parca.split(EMPTY_STRING).reverse().join(EMPTY_STRING))
+            .map((parca) => PREFIX_KEREMAG.concat(parca))
+            .map((parca) => parca + getCurrentDate());
+    
+    return result;
+}
+
+const processResult = processSpareParts(yedekParcaListesi)
+console.log("The processed list: ", processResult);
+*/
