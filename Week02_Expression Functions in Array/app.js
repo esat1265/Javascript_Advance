@@ -21,7 +21,7 @@ console.log("kalan para :" + kalanPara);
 const giderler = incomeStatement
     .filter(income => typeof income =="number")
     .slice(1)                                     // dizideki ilk elamandan sonraki elamanlari alalim
-    .reduce((income,expenses) => income + expenses);  // bunlari toplayarak giderleri bulalim
+    .reduce((total,expenses) => total + expenses);  // bunlari toplayarak giderleri bulalim
 
 console.log("Toplam giderler:" + giderler);
 
