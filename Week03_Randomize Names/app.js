@@ -24,8 +24,8 @@ function listGroup() {
     personalList[i] = personalList[j]
     personalList[j] = k
   }
-  
+
   for(index=0; index<5; index++) {
-    list.innerHTML += `${groupList[index]}  ${personalList[index]} <br>`;
+    list.innerHTML += `${index+1}  ${groupList[index]}  ${personalList[index]} <br>`;
   }
 } 
