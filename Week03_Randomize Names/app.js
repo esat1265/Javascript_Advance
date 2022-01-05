@@ -7,8 +7,12 @@ const groupList = ["Rangers", "Raiders", "Wilds", "Canaries", "Bears"];
 const personalList = ["Bowie", "Boyd", "Aaron-James", "Aarron", "Aaryan", "Aaryn", "Conner", "Connolly", "Fauzaan", "Favour", "Fawaz", "Fawkes", "Connor", "Aayan", "Bracken", "Brad"];
 
 
-let list = document.getElementById('group-list'); 
-  
+let list = document.getElementById('group-list'); // DOM'a ulasip sonucu yazacagimiz kismi aldik
+
+// Fonksiyon her tiklandiginda arraylari karisik sirayla tekrar dizelim(ilk 2 for dongusu her bir array icin bunu yapacak)
+// Son for dongusu ise karisik dizilen arraylarin ilk 5 elemanini alip yazdiracak.
+// Boylece her tiklandiginda isimler karisik olarak siralanaca ve listelenecek
+
 function listGroup() {
     let i, j, k;
   for (i = groupList.length -1; i > 0; i--) {
