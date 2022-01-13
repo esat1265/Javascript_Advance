@@ -114,75 +114,65 @@ const salaryOver5000 = families
     
 console.log(salaryOver5000);
 
+const newChildrenArray = families.map(index=>index.childrens).flat();
+console.log(newChildrenArray);
 
 // 2. Toplam erkek cocuklarin sayisi. Cocuklarin listesi isim sirasina göre siralanmali.
 
-function boy(pArr) {
-   let sum = 0;
-   let boyName = [];
-   for (let index = 0; index < pArr.length; index++) {
-      if(pArr[index].gender==="boy"){
-         sum=sum+1 ; boyName.push(pArr[index].name)} ; 
-}
-return sum + boyName
-};
+const toplamErkekCocuklarSayisi = newChildrenArray.filter(index => index.gender==="boy").length;
+console.log(toplamErkekCocuklarSayisi);
 
-let boyAllNames =[];
-for (let index = 0; index < families.length; index++) {
-   boyAllNames.push(boy(families[index].childrens)); 
-}
-console.log(boyAllNames);
+const erkekCocuklarListesi = newChildrenArray.filter(index => index.gender==="boy").sort((a, b)=>{ 
+   let nameA = a.name.toUpperCase();
+   let nameB = b.name.toUpperCase();
+   if (nameA < nameB) {
+     return -1;
+   };
+   if (nameA > nameB) {
+     return 1;
+   } return 0;
+});
+console.log(erkekCocuklarListesi);
 
 // 3. Toplam kiz cocuklarin sayisi. Cocuklarin listesi isim sirasina göre siralanmali.
 
-function girl(pArr) {
-   let sum = 0;
-   let girlName = [];
-   for (let index = 0; index < pArr.length; index++) {
-      if(pArr[index].gender==="girl"){
-         sum=sum+1 ; girlName.push(pArr[index].name)} ; 
-}
-return sum + girlName
-};
+const toplamKizCocuklarSayisi = newChildrenArray.filter(index => index.gender==="girl").length;
+console.log(toplamKizCocuklarSayisi);
 
-let girlAllNames =[];
-for (let index = 0; index < families.length; index++) {
-   girlAllNames.push(girl(families[index].childrens)); 
-}
-console.log(girlAllNames);
+const kizCocuklarListesi = newChildrenArray.filter(index => index.gender==="girl").sort((a, b)=>{ 
+   let nameA = a.name.toUpperCase();
+   let nameB = b.name.toUpperCase();
+   if (nameA < nameB) {
+     return -1;
+   };
+   if (nameA > nameB) {
+     return 1;
+   } return 0;
+});
+console.log(kizCocuklarListesi);
+
 
 // 4. Yasi 8'den kücük cocuklarin sayisi. Cocuklar yaslarina göre büyükten kücüge göre siralanmali.
 
-function age(pArr) {
-   let sum = 0;
-   let girlName = [];
-   for (let index = 0; index < pArr.length; index++) {
-      if(pArr[index].age < 8){
-         sum=sum+1 ; girlName.push(pArr[index].name)} ; 
-}
-return sum + girlName
-};
 
-let ageUnder8 =[];
-for (let index = 0; index < families.length; index++) {
-   ageUnder8.push(age(families[index].childrens)); 
-}
-console.log(ageUnder8);
+const yasiSekizdenKucukCocuklarSayisi = newChildrenArray.filter(index => index.age < 8 ).length;
+console.log(yasiSekizdenKucukCocuklarSayisi);
+
+const yasiSekizdenKucukCocuklar = newChildrenArray.filter(index => index.age < 8 ).sort((a,b) => a.age-b.age
+);
+console.log(yasiSekizdenKucukCocuklar);
+
 
 // 5. Yasi 8'den büyük cocuklarin annelerinin isimlerinin isim sirasina göre listelenmeli.
- // uzerinde biraz daha calis
-function ages(pArr) {
-   let sum = 0;
-   let girlName = [];
-   for (let index = 0; index < pArr.length; index++) {
-      if(pArr[index].age > 8){
-         sum=sum+1 ; girlName.push(families[index].partner)} ; 
-}
-return sum + girlName
-};
 
-let ageOver8 =[];
-for (let index = 0; index < families.length; index++) {
-   ageOver8.push(ages(families[index].childrens)); 
-}
-console.log(ageOver8);
+//Biraz daha calisilmali
+const yasiSekizdenBuyukCocuklar = newChildrenArray.filter(index => index.age > 8 );
+console.log(yasiSekizdenBuyukCocuklar);
+
+const anneler = families
+.map(index=>index.partner)
+.filter(index=>index == newChildrenArray.filter(index => index.age > 8 ));
+
+console.log(anneler);
+
+
