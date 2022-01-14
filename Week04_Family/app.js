@@ -108,16 +108,16 @@ const families = [
 // 1. Maasi 5000'in üzerinde olan ailelerin listesi. Listede aile babasinin isimleri ve soy isimleri isim sirasina göre listelenmeli. 
 
 const salaryOver5000 = families
-.filter(index => index.salary > 5000)
-.map(index => index.firstname + " " + index.lastname)
-.sort();
+   .filter(index => index.salary > 5000)
+   .map(index => index.firstname + " " + index.lastname)
+   .sort();
     
 console.log(salaryOver5000);
 
-const newChildrenArray = families.map(index=>index.childrens).flat();
-console.log(newChildrenArray);
 
 // 2. Toplam erkek cocuklarin sayisi. Cocuklarin listesi isim sirasina göre siralanmali.
+
+const newChildrenArray = families.map(index=>index.childrens).flat();
 
 const toplamErkekCocuklarSayisi = newChildrenArray.filter(index => index.gender==="boy").length;
 console.log(toplamErkekCocuklarSayisi);
@@ -155,24 +155,32 @@ console.log(kizCocuklarListesi);
 // 4. Yasi 8'den kücük cocuklarin sayisi. Cocuklar yaslarina göre büyükten kücüge göre siralanmali.
 
 
-const yasiSekizdenKucukCocuklarSayisi = newChildrenArray.filter(index => index.age < 8 ).length;
+const yasiSekizdenKucukCocuklarSayisi = newChildrenArray
+   .filter(index => index.age < 8 ).length;
+
 console.log(yasiSekizdenKucukCocuklarSayisi);
 
-const yasiSekizdenKucukCocuklar = newChildrenArray.filter(index => index.age < 8 ).sort((a,b) => a.age-b.age
-);
+const yasiSekizdenKucukCocuklar = newChildrenArray
+   .filter(index => index.age < 8 ).sort((a,b) => a.age-b.age);
+
 console.log(yasiSekizdenKucukCocuklar);
 
 
 // 5. Yasi 8'den büyük cocuklarin annelerinin isimlerinin isim sirasina göre listelenmeli.
 
 //Biraz daha calisilmali
-const yasiSekizdenBuyukCocuklar = newChildrenArray.filter(index => index.age > 8 );
-console.log(yasiSekizdenBuyukCocuklar);
 
-const anneler = families
-.map(index=>index.partner)
-.filter(index=>index == newChildrenArray.filter(index => index.age > 8 ));
+const age8Buyuk = obj => obj.age > 8 ;
+const anneObjeBul = obj => obj.childrens.find(age8Buyuk);
+const anneAdiBul = obj => obj.partner; 
 
-console.log(anneler);
+const anneIsimleri = families
+   .filter(anneObjeBul)
+   .map(anneAdiBul)
+   .sort();
+
+console.log(anneIsimleri);
+
+
 
 
