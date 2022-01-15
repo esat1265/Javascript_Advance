@@ -168,7 +168,6 @@ console.log(yasiSekizdenKucukCocuklar);
 
 // 5. Yasi 8'den büyük cocuklarin annelerinin isimlerinin isim sirasina göre listelenmeli.
 
-//Biraz daha calisilmali
 
 const age8Buyuk = obj => obj.age > 8 ;
 const anneObjeBul = obj => obj.childrens.find(age8Buyuk);
