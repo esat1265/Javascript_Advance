@@ -3,6 +3,7 @@
 // 1. What kind of data structures, objects do I need to code my solution?
 // Rectangle, it is composed off 4 points
 // Point, it is composed of two integers x,y
+
 // 2. Draw 4 points A(0,4) B(4,4) C(0,4) and D(0,0) Test visually if a point is within boundaries of rectangle ABCD
 // Is point G(2,3), K(1,1) within?
 // Is point M(5,6) within?
